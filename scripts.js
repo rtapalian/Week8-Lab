@@ -1,4 +1,3 @@
-
 //Richard Tapalian
 //SE240
 //Week 8 Lab
@@ -136,9 +135,7 @@
 		var fadein = document.getElementById('fadein');
 		fadein.addEventListener("click",FaderIn);
 		
-		/*var showResults = document.getElementById('showResults'); 
-		showResults.addEventListener("click", moveMouse);
-		*/
+		
 		
 		
 		
