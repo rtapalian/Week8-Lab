@@ -11,7 +11,7 @@
 			//content.innerHTML = new Date();
 			
 			if ( counter >= 0 ) {
-				content.innerHTML = counter;
+				//content.innerHTML = counter;
 				counter--
 			} else {
 				alert("You have been here for 10 seconds");
@@ -22,18 +22,7 @@
 		updateContent();
 		//Updates the time every second
 		var contentTimer = setInterval(updateContent, "1000");
-				
-				
-		var img = new Image();
-		
-		img.src = "download.jpg";
-		
-		img.onload = function() {
-			console.log("image Loaded");
-		}
-		
-		
-		
+	
 		//Canvas is called and context is defined
 		var canvas = document.getElementById('myCanvas');
 		var context = canvas.getContext('2d');
@@ -42,39 +31,54 @@
 		var imageObj = new Image();
 		imageObj.src = 'images1.jpg';
 		
-		//Draws a rectangle on the screen inside the canvas
+		//Function to move Halo object at a set interval of time
+		function moveobj ()
+		{
+		var myvar3=setInterval(function4,"30");
+		}
+		var movex=0;
+		var movey=400;
+		
+		//Moves object by drawing and then clearing the space to simulate movement
+		function function4 ()
+		{
+		
+		if (movex<700)
+		{
+		context.clearRect(0,400,700,500);
+		context.drawImage(imageObj, movex, movey);
+		
+		movex = movex + 5;
+		movey = movey + 0;
+		}
+		else
+		{
+		clearInterval(myvar3);
+		}
+		}
+		moveobj();
+		
+		//Draws objects on the canvas
 		function draw ()
 		{
-		context.clearRect(0, 0, 500, 400);
-		context.beginPath();
-		context.moveTo(50, 100);
-		context.lineTo(200, 100);
-		context.lineWidth = 15;
-		context.stroke();
+		//Draw rectangle
+		context.clearRect(0, 0, 700, 500);
+	    context.beginPath();
+        context.rect(250, 200, 200, 100);
+        context.fillStyle = 'black';
+        context.fill();
+	    context.stroke();
 		
-		//Uses the canvas to draw the image and place it
-		var x = 10,
-		    y = 20;	
-		    context.drawImage(imageObj,x,y);
+		//Draw circle
+		context.beginPath();
+		context.arc(95,50,40,0,2*Math.PI);
+		context.stroke();
+	  
 		}
 		//Calls the draw function
 		draw ();
 	  
-		//The image animate function 
-		var mouseImg = document.getElementById('mouseObj'); 
-		var mouseX = 1;
-		var mouseY = 1;
 		
-		
-		function moveMouse() {
-		
-			mouseX += 10;
-			mouseY += 3;
-			mouseImg.style.top =  mouseY+"px";
-			mouseImg.style.left =  mouseX+"px";
-			
-
-		}
 		//Fader for the div
 		var fader = document.getElementById('fader');
 		var opacity1 = 1;
@@ -131,9 +135,9 @@
 		var fadein = document.getElementById('fadein');
 		fadein.addEventListener("click",FaderIn);
 		
-		var showResults = document.getElementById('showResults'); 
+		/*var showResults = document.getElementById('showResults'); 
 		showResults.addEventListener("click", moveMouse);
-		
+		*/
 		
 		
 		
